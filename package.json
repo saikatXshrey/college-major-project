@@ -1,0 +1,21 @@
+{
+  "name": "college-major-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node app.js",
+    "dev":"nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saikatXshrey/college-major-project.git"
+  },
+  "author": "saikatXshrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saikatXshrey/college-major-project/issues"
+  },
+  "homepage": "https://github.com/saikatXshrey/college-major-project#readme"
+}
