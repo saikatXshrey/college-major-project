@@ -5,7 +5,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // states
-  const [searchLocation, setSearchLocation] = useState("");
+  const [searchLocation, setSearchLocation] = useState("Bhitu Billi😽❤");
   const [numberOfRooms, setNumberOfRooms] = useState(2);
   const [housingInformation, setHousingInformation] = useState({});
 
@@ -25,7 +25,7 @@ const AppProvider = ({ children }) => {
   //   useEffect
   useEffect(() => {
     searchAppartment();
-  }, []);
+  }, [numberOfRooms, searchLocation]);
 
   return (
     <AppContext.Provider

@@ -1,5 +1,8 @@
 import React from "react";
 
+// import global context
+import { useGlobalContext } from "../../contexts";
+
 // import packages
 import { Box, Chip, Stack, Slider } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -47,12 +50,15 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
-const RoomSlider = ({ roomSlider, setRoomSlider }) => {
+const RoomSlider = () => {
+  // context-api
+  const { numberOfRooms, updateRoomSlider } = useGlobalContext();
+
   return (
     <>
       <Box mt={0.7}>
         <Stack direction="row" spacing={2}>
-          <Chip icon={<BusinessIcon />} label={roomSlider} color="warning" />
+          <Chip icon={<BusinessIcon />} label={numberOfRooms} color="warning" />
           <PrettoSlider
             step={1}
             min={1}
@@ -60,7 +66,7 @@ const RoomSlider = ({ roomSlider, setRoomSlider }) => {
             valueLabelDisplay="auto"
             aria-label="pretto slider"
             defaultValue={2}
-            onChangeCommitted={(_, v) => setRoomSlider(v)}
+            onChangeCommitted={(_, v) => updateRoomSlider(v)}
           />
         </Stack>
       </Box>
