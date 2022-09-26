@@ -18,7 +18,7 @@ const MetaData = () => {
       <Card sx={{ backgroundColor: "#000" }}>
         <CardContent>
           <Typography variant="h2" color="#fff">
-            Small D**k Big Talks
+            Big Talks
           </Typography>
         </CardContent>
       </Card>

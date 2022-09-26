@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
+// import Geocoder from "react-map-gl-geocoder";
 
 // icon
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
@@ -49,6 +50,7 @@ const SearchBar = () => {
           <Grid item xs={12}>
             <FormControl fullWidth variant="outlined">
               <InputLabel htmlFor="search_field">Search</InputLabel>
+              {/* <Geocoder /> */}
               <OutlinedInput
                 fullWidth
                 label="Search"

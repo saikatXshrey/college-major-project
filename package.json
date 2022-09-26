@@ -18,7 +18,8 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-map-gl": "^7.0.19",
+    "react-map-gl": "^6.1.19",
+    "react-map-gl-geocoder": "^2.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
