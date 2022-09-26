@@ -7,6 +7,7 @@ import Geocoder from "react-map-gl-geocoder";
 // geocode style
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
+// mapbox token
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoic2Fpa2F0eHNocmV5IiwiYSI6ImNrcHJ3cDQ0NzBiYWgycXA4NW53dGIzdjQifQ.NASg72RH5BGwOFLBTU6LvA";
 
@@ -27,7 +28,7 @@ const CustomMap = () => {
 
   const handleGeocoderViewportChange = useCallback(
     (newViewport) => {
-      const geocoderDefaultOverrides = { transitionDuration: 3000 };
+      const geocoderDefaultOverrides = { transitionDuration: 2000 };
 
       return handleViewportChange({
         ...newViewport,
@@ -48,6 +49,7 @@ const CustomMap = () => {
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
       <Geocoder
+        onResult={(e) => console.log(e)}
         mapRef={mapRef}
         onViewportChange={handleGeocoderViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN}

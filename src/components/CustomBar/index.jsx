@@ -4,14 +4,14 @@ import React from "react";
 import { Box, Grid } from "@mui/material";
 
 // import components
-import SearchBar from "./search-bar";
+import RoomSlider from "./room-slider";
 import MetaData from "./meta-data";
 
 const CustomBar = () => {
   return (
     <>
       <Box
-        // mt={-56}
+        mt={3.8}
         sx={{
           width: "96%",
           height: "100%",
@@ -25,7 +25,7 @@ const CustomBar = () => {
       >
         <Grid container spacing={5}>
           <Grid item xs={12}>
-            <SearchBar />
+            <RoomSlider />
           </Grid>
 
           <Grid item xs={12}>
