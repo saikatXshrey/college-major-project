@@ -5,7 +5,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // states
-  const [searchLocation, setSearchLocation] = useState("Bhitu Billi😽❤");
+  const [searchLocation, setSearchLocation] = useState(null);
   const [numberOfRooms, setNumberOfRooms] = useState(2);
   const [housingInformation, setHousingInformation] = useState({});
 

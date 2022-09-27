@@ -1,5 +1,8 @@
 import React, { useState, useRef, useCallback } from "react";
 
+// import global context
+import { useGlobalContext } from "../../contexts";
+
 // import packages
 import MapGL from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
@@ -12,6 +15,9 @@ const MAPBOX_TOKEN =
   "pk.eyJ1Ijoic2Fpa2F0eHNocmV5IiwiYSI6ImNrcHJ3cDQ0NzBiYWgycXA4NW53dGIzdjQifQ.NASg72RH5BGwOFLBTU6LvA";
 
 const CustomMap = () => {
+  // context-api
+  const { updateSearchLocation } = useGlobalContext();
+
   // hooks
   const [viewport, setViewport] = useState({
     longitude: 77.580649,
@@ -49,11 +55,11 @@ const CustomMap = () => {
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
       <Geocoder
-        onResult={(e) => console.log(e)}
         mapRef={mapRef}
         onViewportChange={handleGeocoderViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         position="top-left"
+        onResult={(e) => updateSearchLocation(e.result.text)}
       />
     </MapGL>
   );
