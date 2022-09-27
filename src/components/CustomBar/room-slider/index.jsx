@@ -18,7 +18,7 @@ const RoomSlider = () => {
 
   return (
     <>
-      <Box mt={0.7}>
+      <Box mt={0.7} mr={1}>
         <Stack direction="row" spacing={2}>
           <Chip icon={<BusinessIcon />} label={numberOfRooms} color="warning" />
           <PrettoSlider

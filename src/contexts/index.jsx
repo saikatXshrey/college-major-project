@@ -7,7 +7,11 @@ const AppProvider = ({ children }) => {
   // states
   const [searchLocation, setSearchLocation] = useState(null);
   const [numberOfRooms, setNumberOfRooms] = useState(2);
-  const [housingInformation, setHousingInformation] = useState({});
+  const [housingInformation, setHousingInformation] = useState({
+    location: searchLocation,
+    rooms: numberOfRooms,
+    price: 0,
+  });
 
   //   call-back methods
   const updateSearchLocation = (location) => {

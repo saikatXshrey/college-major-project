@@ -1,5 +1,8 @@
 import React from "react";
 
+// import global context
+import { useGlobalContext } from "../../../contexts";
+
 // import packages
 import {
   Box,
@@ -10,20 +13,25 @@ import {
   Container,
 } from "@mui/material";
 
+// import components
+import Blank from "./blank";
+import Filled from "./filled";
+
 const MetaData = () => {
+  // context-api
+  const {
+    housingInformation: { location, rooms, price },
+  } = useGlobalContext();
+
   return (
     <>
-      {/* <Container> */}
-      {/* <Box m={0.8}> */}
       <Card sx={{ backgroundColor: "#000" }}>
-        <CardContent>
-          <Typography variant="h2" color="#fff">
-            Big Talks
-          </Typography>
-        </CardContent>
+        {location && rooms > 0 && price > 0 ? (
+          <Filled location={location} rooms={rooms} price={price} />
+        ) : (
+          <Blank />
+        )}
       </Card>
-      {/* </Box> */}
-      {/* </Container> */}
     </>
   );
 };
