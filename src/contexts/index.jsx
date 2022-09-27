@@ -7,11 +7,8 @@ const AppProvider = ({ children }) => {
   // states
   const [searchLocation, setSearchLocation] = useState(null);
   const [numberOfRooms, setNumberOfRooms] = useState(2);
-  const [housingInformation, setHousingInformation] = useState({
-    location: searchLocation,
-    rooms: numberOfRooms,
-    price: 0,
-  });
+  const [housePrice, setHousePrice] = useState(69);
+  const [housingInformation, setHousingInformation] = useState({});
 
   //   call-back methods
   const updateSearchLocation = (location) => {
@@ -26,9 +23,22 @@ const AppProvider = ({ children }) => {
     console.log(searchLocation, numberOfRooms);
   };
 
+  const updateHousingInformation = () => {
+    setHousingInformation((info) => ({
+      ...info,
+      location: searchLocation,
+      rooms: numberOfRooms,
+      price: housePrice,
+    }));
+  };
+
   //   useEffect
   useEffect(() => {
+    // price prediction
     searchAppartment();
+
+    // update housing information
+    updateHousingInformation();
   }, [numberOfRooms, searchLocation]);
 
   return (
