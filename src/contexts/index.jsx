@@ -24,8 +24,8 @@ const AppProvider = ({ children }) => {
   };
 
   const updateHousingInformation = () => {
-    setHousingInformation((info) => ({
-      ...info,
+    setHousingInformation((previous) => ({
+      ...previous,
       location: searchLocation,
       rooms: numberOfRooms,
       price: housePrice,

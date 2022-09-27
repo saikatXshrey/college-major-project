@@ -4,7 +4,13 @@ import React, { useState, useRef, useCallback } from "react";
 import { useGlobalContext } from "../../contexts";
 
 // import packages
-import MapGL from "react-map-gl";
+import MapGL, {
+  Marker,
+  Popup,
+  NavigationControl,
+  FullscreenControl,
+  GeolocateControl,
+} from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
 
 // geocode style
@@ -22,7 +28,7 @@ const CustomMap = () => {
   const [viewport, setViewport] = useState({
     longitude: 77.580649,
     latitude: 12.972442,
-    zoom: 13.9,
+    zoom: 12.9,
   });
   const mapRef = useRef();
 
@@ -50,15 +56,17 @@ const CustomMap = () => {
       {...viewport}
       width="100%"
       height="98vh"
-      mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapStyle="mapbox://styles/mapbox/navigation-day-v1"
       onViewportChange={handleViewportChange}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
+      <NavigationControl position="top-left" />
+      <FullscreenControl position="top-left" />
       <Geocoder
         mapRef={mapRef}
         onViewportChange={handleGeocoderViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN}
-        position="top-left"
+        position="top-right"
         onResult={(e) => updateSearchLocation(e.result.text)}
       />
     </MapGL>

@@ -1,7 +1,12 @@
 import React from "react";
 
 // import packages
-import { CardContent, CardMedia, Typography } from "@mui/material";
+import { Chip, CardContent, CardMedia, Typography } from "@mui/material";
+
+// icons
+import RoomIcon from "@mui/icons-material/Room";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import ChairIcon from "@mui/icons-material/Chair";
 
 const Filled = ({ location, rooms, price }) => {
   // image link
@@ -9,30 +14,26 @@ const Filled = ({ location, rooms, price }) => {
 
   return (
     <>
-      <CardMedia
-        component="img"
-        //   height="140"
-        image={image_link}
-        alt="bangalore"
-      />
+      <CardMedia component="img" image={image_link} alt="bangalore" />
 
       <CardContent>
         <Typography gutterBottom variant="h2" color="#fff">
           Housing Price :
         </Typography>
 
-        {/* <br /> */}
-
         <Typography gutterBottom variant="h5" color="#fff">
-          Location ⮕ {location}
+          <Chip color="info" icon={<RoomIcon />} label="Location " />
+          {"\t"}⮕ {location}
         </Typography>
 
         <Typography gutterBottom variant="h5" color="#fff">
-          Rooms ⮕ {rooms}BHK
+          <Chip color="success" icon={<ChairIcon />} label="Rooms" />
+          {"\t"}⮕ {rooms}BHK
         </Typography>
 
         <Typography gutterBottom variant="h5" color="#fff">
-          Price ⮕ ₹{price}
+          <Chip color="error" icon={<MonetizationOnIcon />} label="Price" />
+          {"\t"}⮕ ₹{price}
         </Typography>
       </CardContent>
     </>
