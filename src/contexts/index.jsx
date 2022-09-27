@@ -5,18 +5,31 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // states
-  const [searchLocation, setSearchLocation] = useState(null);
+  const [searchLocation, setSearchLocation] = useState({
+    longitude: 77.5913,
+    latitude: 12.97912,
+  });
   const [numberOfRooms, setNumberOfRooms] = useState(2);
   const [housePrice, setHousePrice] = useState(69);
   const [housingInformation, setHousingInformation] = useState({});
+  const [counter, setCounter] = useState(-1);
 
   //   call-back methods
-  const updateSearchLocation = (location) => {
-    setSearchLocation(location);
+  const updateSearchLocation = (name, lon, lat) => {
+    setSearchLocation((previous) => ({
+      ...previous,
+      name: name,
+      longitude: lon,
+      latitude: lat,
+    }));
   };
 
   const updateRoomSlider = (number) => {
     setNumberOfRooms(number);
+  };
+
+  const updateCounter = () => {
+    setCounter(counter + 1);
   };
 
   const searchAppartment = () => {
@@ -26,7 +39,7 @@ const AppProvider = ({ children }) => {
   const updateHousingInformation = () => {
     setHousingInformation((previous) => ({
       ...previous,
-      location: searchLocation,
+      location: searchLocation.name,
       rooms: numberOfRooms,
       price: housePrice,
     }));
@@ -34,6 +47,9 @@ const AppProvider = ({ children }) => {
 
   //   useEffect
   useEffect(() => {
+    // update counter
+    updateCounter();
+
     // price prediction
     searchAppartment();
 
@@ -46,9 +62,11 @@ const AppProvider = ({ children }) => {
       value={{
         housingInformation,
         numberOfRooms,
+        counter,
         searchLocation,
         updateSearchLocation,
         searchAppartment,
+        updateCounter,
         updateRoomSlider,
       }}
     >

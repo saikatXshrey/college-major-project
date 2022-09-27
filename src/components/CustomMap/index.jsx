@@ -6,12 +6,13 @@ import { useGlobalContext } from "../../contexts";
 // import packages
 import MapGL, {
   Marker,
-  Popup,
   NavigationControl,
   FullscreenControl,
-  GeolocateControl,
 } from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
+
+// icon
+import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
 
 // geocode style
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
@@ -22,12 +23,12 @@ const MAPBOX_TOKEN =
 
 const CustomMap = () => {
   // context-api
-  const { updateSearchLocation } = useGlobalContext();
+  const { counter, updateSearchLocation, searchLocation } = useGlobalContext();
 
   // hooks
   const [viewport, setViewport] = useState({
-    longitude: 77.580649,
-    latitude: 12.972442,
+    longitude: 77.5913,
+    latitude: 12.97912,
     zoom: 12.9,
   });
   const mapRef = useRef();
@@ -67,8 +68,23 @@ const CustomMap = () => {
         onViewportChange={handleGeocoderViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         position="top-right"
-        onResult={(e) => updateSearchLocation(e.result.text)}
+        onResult={(e) =>
+          updateSearchLocation(
+            e.result.text,
+            e.result.center[0],
+            e.result.center[1]
+          )
+        }
       />
+      {counter > 0 && (
+        <Marker
+          longitude={searchLocation.longitude}
+          latitude={searchLocation.latitude}
+          anchor="bottom"
+        >
+          <PersonPinCircleIcon fontSize="large" color="primary" />
+        </Marker>
+      )}
     </MapGL>
   );
 };
