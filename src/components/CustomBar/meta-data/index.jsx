@@ -21,6 +21,7 @@ const MetaData = () => {
   // context-api
   const {
     housingInformation: { location, rooms, price },
+    counter,
   } = useGlobalContext();
 
   return (
@@ -28,6 +29,8 @@ const MetaData = () => {
       <Card sx={{ backgroundColor: "#000" }}>
         {location && rooms > 0 && price > 0 ? (
           <Filled location={location} rooms={rooms} price={price} />
+        ) : counter > 0 ? (
+          <Filled location={location} rooms={rooms} price="Not Found" />
         ) : (
           <Blank />
         )}

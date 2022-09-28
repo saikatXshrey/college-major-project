@@ -30,20 +30,30 @@ const Filled = ({ location, rooms, price }) => {
           Housing Price :
         </Typography>
 
+        {/* location */}
         <Typography gutterBottom variant="h6" color="#fff">
           <Chip color="info" icon={<RoomIcon />} label="Location " />
           {"\t"}⮕ {location}
         </Typography>
 
+        {/* rooms */}
         <Typography gutterBottom variant="h6" color="#fff">
           <Chip color="success" icon={<ChairIcon />} label="Rooms" />
           {"\t"}⮕ {rooms}BHK
         </Typography>
 
-        <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="error" icon={<MonetizationOnIcon />} label="Price" />
-          {"\t"}⮕ ₹{price}
-        </Typography>
+        {/* price */}
+        {isNaN(price) ? (
+          <Typography gutterBottom variant="h6" color="#fff">
+            <Chip color="error" icon={<MonetizationOnIcon />} label="Price" />
+            {"\t"}⮕ {price}
+          </Typography>
+        ) : (
+          <Typography gutterBottom variant="h6" color="#fff">
+            <Chip color="error" icon={<MonetizationOnIcon />} label="Price" />
+            {"\t"}⮕ ₹{price}
+          </Typography>
+        )}
       </CardContent>
     </>
   );

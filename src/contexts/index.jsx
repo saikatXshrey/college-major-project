@@ -32,10 +32,6 @@ const AppProvider = ({ children }) => {
     setCounter(counter + 1);
   };
 
-  const searchAppartment = () => {
-    console.log(searchLocation, numberOfRooms);
-  };
-
   const updateHousingInformation = () => {
     setHousingInformation((previous) => ({
       ...previous,
@@ -43,6 +39,11 @@ const AppProvider = ({ children }) => {
       rooms: numberOfRooms,
       price: housePrice,
     }));
+  };
+
+  const searchAppartment = () => {
+    setHousePrice(169);
+    console.log(searchLocation, numberOfRooms);
   };
 
   //   useEffect
