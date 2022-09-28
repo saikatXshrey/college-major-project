@@ -26,10 +26,10 @@ const MetaData = () => {
 
   return (
     <>
-      <Card sx={{ backgroundColor: "#000" }}>
+      <Card sx={{ backgroundColor: "#131515" }}>
         {location && rooms > 0 && price > 0 ? (
           <Filled location={location} rooms={rooms} price={price} />
-        ) : counter > 0 ? (
+        ) : location && counter > 0 ? (
           <Filled location={location} rooms={rooms} price="Not Found" />
         ) : (
           <Blank />

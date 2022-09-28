@@ -10,7 +10,12 @@ import CustomBar from "./components/CustomBar";
 const App = () => {
   return (
     <Box m={0.8}>
-      <Card m={1}>
+      <Card
+        m={1}
+        sx={{
+          backgroundColor: "#000",
+        }}
+      >
         <Grid container spacing={0.9}>
           <Grid item lg={9} sm={9} xs={12}>
             <CustomMap />
