@@ -1,4 +1,5 @@
-const style = {
+// style for modal-box
+export const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -6,10 +7,9 @@ const style = {
   width: 400,
   bgcolor: "background.paper",
   border: "2px solid #000",
+  borderRadius: "20px",
   boxShadow: 24,
   pt: 2,
   px: 4,
   pb: 3,
 };
-
-export default style;

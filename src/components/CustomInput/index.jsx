@@ -23,7 +23,7 @@ import { useGlobalContext } from "../../contexts";
 import RoomSlider from "./room-slider";
 
 // style
-import styles from "./styles";
+import { style } from "./styles";
 
 const Input = () => {
   // context api
@@ -37,7 +37,7 @@ const Input = () => {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...styles, width: "500px" }}>
+        <Box sx={{ ...style, width: "500px" }}>
           <Grid container spacing={2}>
             <Grid item xs={12} gutterBottom>
               <Stack direction="row" spacing={2}>
@@ -53,11 +53,16 @@ const Input = () => {
 
             <Grid item xs={12}>
               <Stack direction="row" spacing={3}>
-                <Button fullWidth variant="outlined" startIcon={<ClearIcon />}>
+                <Button
+                  fullWidth
+                  color="error"
+                  variant="contained"
+                  startIcon={<ClearIcon />}
+                >
                   Cancel
                 </Button>
                 <Button fullWidth variant="contained" endIcon={<SendIcon />}>
-                  Send
+                  Search
                 </Button>
               </Stack>
             </Grid>
