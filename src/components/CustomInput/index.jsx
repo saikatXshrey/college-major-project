@@ -7,10 +7,10 @@ import {
   Modal,
   Stack,
   Button,
-  Card,
-  CardContent,
+  Typography,
   Grid,
 } from "@mui/material";
+import { useFormik } from "formik";
 
 // icons
 import SendIcon from "@mui/icons-material/Send";
@@ -22,12 +22,30 @@ import { useGlobalContext } from "../../contexts";
 // import components
 import RoomSlider from "./room-slider";
 
-// style
+// import objects
+import validationSchema from "./form-handler/validation";
 import { style } from "./styles";
+// import formik from "./form-handler/formik";
 
-const Input = () => {
+const CustomInput = () => {
   // context api
   const { modalIsOpen, setModalIsOpen } = useGlobalContext();
+
+  // hooks
+  const formik = useFormik({
+    initialValues: {
+      sqft: "",
+      bath: "",
+      balcony: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
+  const { errors, touched, isSubmitting, handleSubmit, values, getFieldProps } =
+    formik;
 
   return (
     <>
@@ -38,39 +56,75 @@ const Input = () => {
         aria-describedby="parent-modal-description"
       >
         <Box sx={{ ...style, width: "500px" }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} gutterBottom>
-              <Stack direction="row" spacing={2}>
-                <TextField label="Sqft" />
-                <TextField label="Bath" />
-                <TextField label="Balcony" />
-              </Stack>
-            </Grid>
+          <Typography variant="h2" gutterBottom>
+            Search Housing
+          </Typography>
 
-            <Grid item xs={12}>
-              <RoomSlider />
-            </Grid>
+          <form onSubmit={handleSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} gutterBottom>
+                <Stack direction="row" spacing={2}>
+                  {/* sqft */}
+                  <TextField
+                    fullWidth
+                    type="number"
+                    label="Sqft"
+                    {...getFieldProps("sqft")}
+                    error={Boolean(errors.sqft)}
+                    helperText={touched.sqft && errors.sqft}
+                  />
 
-            <Grid item xs={12}>
-              <Stack direction="row" spacing={3}>
-                <Button
-                  fullWidth
-                  color="error"
-                  variant="contained"
-                  startIcon={<ClearIcon />}
-                >
-                  Cancel
-                </Button>
-                <Button fullWidth variant="contained" endIcon={<SendIcon />}>
-                  Search
-                </Button>
-              </Stack>
+                  {/* bath */}
+                  <TextField
+                    type="number"
+                    label="Bath"
+                    {...getFieldProps("bath")}
+                    error={Boolean(errors.bath)}
+                    helperText={touched.bath && errors.bath}
+                  />
+
+                  {/* balcony */}
+                  <TextField
+                    type="number"
+                    label="Balcony"
+                    {...getFieldProps("balcony")}
+                    error={Boolean(errors.balcony)}
+                    helperText={touched.balcony && errors.balcony}
+                  />
+                </Stack>
+              </Grid>
+
+              <Grid item xs={12}>
+                <RoomSlider />
+              </Grid>
+
+              <Grid item xs={12}>
+                <Stack direction="row" spacing={3}>
+                  <Button
+                    fullWidth
+                    color="error"
+                    variant="contained"
+                    startIcon={<ClearIcon />}
+                    onClick={(e) => setModalIsOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    endIcon={<SendIcon />}
+                  >
+                    Search
+                  </Button>
+                </Stack>
+              </Grid>
             </Grid>
-          </Grid>
+          </form>
         </Box>
       </Modal>
     </>
   );
 };
 
-export default Input;
+export default CustomInput;

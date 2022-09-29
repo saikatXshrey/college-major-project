@@ -4,7 +4,7 @@ import React from "react";
 import { Box, Grid, Card } from "@mui/material";
 
 // import components
-import Input from "./components/CustomInput";
+import CustomInput from "./components/CustomInput";
 import CustomMap from "./components/CustomMap";
 import CustomBar from "./components/CustomBar";
 
@@ -17,12 +17,16 @@ const App = () => {
           backgroundColor: "#000",
         }}
       >
-        <Input />
+        {/* modal input */}
+        <CustomInput />
+
         <Grid container spacing={0.9}>
+          {/* map-box custom map */}
           <Grid item lg={9} sm={9} xs={12}>
             <CustomMap />
           </Grid>
 
+          {/* display result */}
           <Grid item lg={3} sm={3} xs={12}>
             <CustomBar />
           </Grid>

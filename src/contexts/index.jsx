@@ -14,6 +14,7 @@ const AppProvider = ({ children }) => {
   const [housePrice, setHousePrice] = useState(69);
   const [housingInformation, setHousingInformation] = useState({});
   const [counter, setCounter] = useState(-1);
+  const [searchRequest, setSearchRequest] = useState({});
 
   //   call-back methods
   const updateSearchLocation = (name, lon, lat) => {
