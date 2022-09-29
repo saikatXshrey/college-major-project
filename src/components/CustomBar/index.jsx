@@ -4,8 +4,8 @@ import React from "react";
 import { Box, Grid } from "@mui/material";
 
 // import components
-import RoomSlider from "./room-slider";
 import MetaData from "./meta-data";
+import RoomSlider from "./room-slider";
 
 const CustomBar = () => {
   return (
@@ -16,11 +16,6 @@ const CustomBar = () => {
           width: "96%",
           height: "100%",
           padding: 0.8,
-          // backgroundColor: 'primary.dark',
-          // '&:hover': {
-          // backgroundColor: 'primary.main',
-          // opacity: [0.9, 0.8, 0.7],
-          // },
         }}
       >
         <Grid container spacing={5}>

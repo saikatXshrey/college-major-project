@@ -5,6 +5,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // states
+  const [modalIsOpen, setModalIsOpen] = useState(true);
   const [searchLocation, setSearchLocation] = useState({
     longitude: 77.5913,
     latitude: 12.97912,
@@ -61,10 +62,12 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        modalIsOpen,
         housingInformation,
         numberOfRooms,
         counter,
         searchLocation,
+        setModalIsOpen,
         updateSearchLocation,
         searchAppartment,
         updateCounter,

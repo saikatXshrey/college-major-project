@@ -4,6 +4,7 @@ import React from "react";
 import { Box, Grid, Card } from "@mui/material";
 
 // import components
+import Input from "./components/CustomInput";
 import CustomMap from "./components/CustomMap";
 import CustomBar from "./components/CustomBar";
 
@@ -16,6 +17,7 @@ const App = () => {
           backgroundColor: "#000",
         }}
       >
+        <Input />
         <Grid container spacing={0.9}>
           <Grid item lg={9} sm={9} xs={12}>
             <CustomMap />
