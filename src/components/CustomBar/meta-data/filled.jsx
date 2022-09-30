@@ -13,8 +13,11 @@ import {
 import RoomIcon from "@mui/icons-material/Room";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import ChairIcon from "@mui/icons-material/Chair";
+import BathtubIcon from "@mui/icons-material/Bathtub";
+import BalconyIcon from "@mui/icons-material/Balcony";
+import RoofingRoundedIcon from "@mui/icons-material/RoofingRounded";
 
-const Filled = ({ location, rooms, price }) => {
+const Filled = ({ location, sqft, bath, balcony, rooms, price }) => {
   // image link
   const image_link = `https://source.unsplash.com/1920x1080/?${location}`;
   const magic_bricks_link = `https://www.magicbricks.com/${location}-in-Bangalore-Overview`;
@@ -34,6 +37,24 @@ const Filled = ({ location, rooms, price }) => {
         <Typography gutterBottom variant="h6" color="#fff">
           <Chip color="info" icon={<RoomIcon />} label="Location " />
           {"\t"}⮕ {location}
+        </Typography>
+
+        {/* area */}
+        <Typography gutterBottom variant="h6" color="#fff">
+          <Chip color="info" icon={<RoofingRoundedIcon />} label="Area " />
+          {"\t"}⮕ {sqft} Sqft
+        </Typography>
+
+        {/* bath */}
+        <Typography gutterBottom variant="h6" color="#fff">
+          <Chip color="info" icon={<BathtubIcon />} label="Bath " />
+          {"\t"}⮕ {bath}
+        </Typography>
+
+        {/* balcony */}
+        <Typography gutterBottom variant="h6" color="#fff">
+          <Chip color="info" icon={<BalconyIcon />} label="Balcony " />
+          {"\t"}⮕ {balcony}
         </Typography>
 
         {/* rooms */}

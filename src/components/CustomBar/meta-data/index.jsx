@@ -4,14 +4,7 @@ import React from "react";
 import { useGlobalContext } from "../../../contexts";
 
 // import packages
-import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Paper,
-  Container,
-} from "@mui/material";
+import { Card } from "@mui/material";
 
 // import components
 import Blank from "./blank";
@@ -20,7 +13,7 @@ import Filled from "./filled";
 const MetaData = () => {
   // context-api
   const {
-    housingInformation: { location, rooms, price },
+    housingInformation: { location, sqft, bath, balcony, rooms, price },
     counter,
   } = useGlobalContext();
 
@@ -28,9 +21,23 @@ const MetaData = () => {
     <>
       <Card sx={{ backgroundColor: "#131515" }}>
         {location && rooms > 0 && price > 0 ? (
-          <Filled location={location} rooms={rooms} price={price} />
+          <Filled
+            location={location}
+            sqft={sqft}
+            bath={bath}
+            balcony={balcony}
+            price={price}
+            rooms={rooms}
+          />
         ) : location && counter > 0 ? (
-          <Filled location={location} rooms={rooms} price="Not Found" />
+          <Filled
+            location={location}
+            sqft={sqft}
+            bath={bath}
+            balcony={balcony}
+            price="Not Found!"
+            rooms={rooms}
+          />
         ) : (
           <Blank />
         )}

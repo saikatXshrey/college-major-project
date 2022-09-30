@@ -5,7 +5,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // states
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [searchLocation, setSearchLocation] = useState({
     longitude: 77.5913,
     latitude: 12.97912,
@@ -38,27 +38,43 @@ const AppProvider = ({ children }) => {
     setHousingInformation((previous) => ({
       ...previous,
       location: searchLocation.name,
+      sqft: searchRequest.sqft,
+      bath: searchRequest.bath,
+      balcony: searchRequest.balcony,
       rooms: numberOfRooms,
       price: housePrice,
     }));
   };
 
   const searchAppartment = () => {
-    setHousePrice(169);
-    console.log(searchLocation, numberOfRooms);
+    console.log("fuck");
+    setHousePrice(123);
   };
 
-  //   useEffect
+  //   useEffect - 1
   useEffect(() => {
     // update counter
     updateCounter();
 
     // price prediction
-    searchAppartment();
+    const { name, sqft, bath, balcony, bhk } = searchRequest;
+    if (name && sqft && bath && balcony && bhk) {
+      searchAppartment();
 
-    // update housing information
-    updateHousingInformation();
-  }, [numberOfRooms, searchLocation]);
+      // update housing information
+      updateHousingInformation();
+    }
+
+    console.log(searchRequest);
+
+    // close modal
+    setModalIsOpen(false);
+  }, [searchRequest]);
+
+  // useEffect - 2
+  useEffect(() => {
+    if (counter > -1) setModalIsOpen(true);
+  }, [searchLocation]);
 
   return (
     <AppContext.Provider
@@ -68,6 +84,8 @@ const AppProvider = ({ children }) => {
         numberOfRooms,
         counter,
         searchLocation,
+        searchRequest,
+        setSearchRequest,
         setModalIsOpen,
         updateSearchLocation,
         searchAppartment,

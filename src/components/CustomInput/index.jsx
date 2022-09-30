@@ -23,13 +23,20 @@ import { useGlobalContext } from "../../contexts";
 import RoomSlider from "./room-slider";
 
 // import objects
-import validationSchema from "./form-handler/validation";
 import { style } from "./styles";
-// import formik from "./form-handler/formik";
+
+// formik validation
+import validationSchema from "./form-handler/validation";
 
 const CustomInput = () => {
   // context api
-  const { modalIsOpen, setModalIsOpen } = useGlobalContext();
+  const {
+    modalIsOpen,
+    setModalIsOpen,
+    numberOfRooms,
+    searchLocation,
+    setSearchRequest,
+  } = useGlobalContext();
 
   // hooks
   const formik = useFormik({
@@ -39,8 +46,15 @@ const CustomInput = () => {
       balcony: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: ({ sqft, bath, balcony }) => {
+      setSearchRequest((previous) => ({
+        ...previous,
+        name: searchLocation.name,
+        sqft: sqft,
+        bath: bath,
+        balcony: balcony,
+        bhk: numberOfRooms,
+      }));
     },
   });
 
@@ -105,7 +119,7 @@ const CustomInput = () => {
                     color="error"
                     variant="contained"
                     startIcon={<ClearIcon />}
-                    onClick={(e) => setModalIsOpen(false)}
+                    onClick={() => setModalIsOpen(false)}
                   >
                     Cancel
                   </Button>
