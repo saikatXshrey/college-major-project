@@ -47,7 +47,6 @@ const AppProvider = ({ children }) => {
   };
 
   const searchAppartment = () => {
-    console.log("fuck");
     setHousePrice(123);
   };
 
@@ -57,15 +56,10 @@ const AppProvider = ({ children }) => {
     updateCounter();
 
     // price prediction
-    const { name, sqft, bath, balcony, bhk } = searchRequest;
-    if (name && sqft && bath && balcony && bhk) {
-      searchAppartment();
+    searchAppartment();
 
-      // update housing information
-      updateHousingInformation();
-    }
-
-    console.log(searchRequest);
+    // update housing information
+    updateHousingInformation();
 
     // close modal
     setModalIsOpen(false);
