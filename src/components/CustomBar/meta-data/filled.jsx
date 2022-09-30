@@ -41,19 +41,19 @@ const Filled = ({ location, sqft, bath, balcony, rooms, price }) => {
 
         {/* area */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="info" icon={<RoofingRoundedIcon />} label="Area " />
+          <Chip color="secondary" icon={<RoofingRoundedIcon />} label="Area " />
           {"\t"}⮕ {sqft} Sqft
         </Typography>
 
         {/* bath */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="info" icon={<BathtubIcon />} label="Bath " />
+          <Chip color="primary" icon={<BathtubIcon />} label="Bath " />
           {"\t"}⮕ {bath}
         </Typography>
 
         {/* balcony */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="info" icon={<BalconyIcon />} label="Balcony " />
+          <Chip color="warning" icon={<BalconyIcon />} label="Balcony " />
           {"\t"}⮕ {balcony}
         </Typography>
 
