@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "formik": "^2.2.9",
     "install": "^0.13.0",
+    "jest": "^27.5.1",
     "mapbox-gl": "^2.10.0",
     "npm": "^8.19.2",
     "prop-types": "^15.8.1",
