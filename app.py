@@ -3,6 +3,10 @@ import util
 
 app = Flask(__name__)
 
+@app.route('/',methods=['GET'])
+def hello_world():
+    return 'Welcome to Bangalore Housing Price Fetcher Server🤳'
+
 @app.route('/getlocation',methods=['GET'])
 def getlocation():
     response=jsonify({'location':util.getlocations()})
