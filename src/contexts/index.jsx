@@ -1,10 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 
+// import modules
+import getLocation from "../api/location";
+import pricePrediction from "../api/prediction";
+
 // create context
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   // states
+  const [availableLocation, setAvailableLocation] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [searchLocation, setSearchLocation] = useState({
     longitude: 77.5913,
@@ -17,6 +22,7 @@ const AppProvider = ({ children }) => {
   const [searchRequest, setSearchRequest] = useState({});
 
   //   call-back methods
+
   const updateSearchLocation = (name, lon, lat) => {
     setSearchLocation((previous) => ({
       ...previous,
@@ -46,9 +52,12 @@ const AppProvider = ({ children }) => {
     }));
   };
 
-  const searchAppartment = () => {
-    setHousePrice(123);
-  };
+  // useEffect - 0
+  useEffect(() => {
+    getLocation()
+      .then((data) => setAvailableLocation(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   //   useEffect - 1
   useEffect(() => {
@@ -56,10 +65,7 @@ const AppProvider = ({ children }) => {
     updateCounter();
 
     // price prediction
-    searchAppartment();
-
-    // update housing information
-    updateHousingInformation();
+    pricePrediction(searchRequest, availableLocation, setHousePrice);
 
     // close modal
     setModalIsOpen(false);
@@ -67,12 +73,19 @@ const AppProvider = ({ children }) => {
 
   // useEffect - 2
   useEffect(() => {
+    // update housing information
+    updateHousingInformation();
+  }, [housePrice]);
+
+  // useEffect - 3
+  useEffect(() => {
     if (counter > -1) setModalIsOpen(true);
   }, [searchLocation]);
 
   return (
     <AppContext.Provider
       value={{
+        availableLocation,
         modalIsOpen,
         housingInformation,
         numberOfRooms,
@@ -82,7 +95,6 @@ const AppProvider = ({ children }) => {
         setSearchRequest,
         setModalIsOpen,
         updateSearchLocation,
-        searchAppartment,
         updateCounter,
         updateRoomSlider,
       }}
