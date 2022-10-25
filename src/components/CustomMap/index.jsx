@@ -9,6 +9,7 @@ import MapGL, {
   NavigationControl,
   FullscreenControl,
 } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 import Geocoder from "react-map-gl-geocoder";
 
 // icon
@@ -19,7 +20,7 @@ import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 // mapbox token
 const MAPBOX_TOKEN =
-  "pk.eyJ1Ijoic2Fpa2F0eHNocmV5IiwiYSI6ImNsOW9pa2tvMTBnZGUzdW81NzVkZWQ4eGsifQ._HAiZrMtGDIEFCEfrMruDQ";
+  "pk.eyJ1Ijoic2Fpa2F0eHNocmV5IiwiYSI6ImNrcHJ3cDQ0NzBiYWgycXA4NW53dGIzdjQifQ.NASg72RH5BGwOFLBTU6LvA";
 
 const CustomMap = () => {
   // context-api
