@@ -25,6 +25,7 @@
     "react-map-gl-geocoder": "^2.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
+    "worker-loader": "^3.0.8",
     "yup": "^0.32.11"
   },
   "scripts": {

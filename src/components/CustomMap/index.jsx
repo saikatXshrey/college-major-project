@@ -9,14 +9,20 @@ import MapGL, {
   NavigationControl,
   FullscreenControl,
 } from "react-map-gl";
-// import "mapbox-gl/dist/mapbox-gl.css";
 import Geocoder from "react-map-gl-geocoder";
+
+// geocode style
+import "mapbox-gl/dist/mapbox-gl.css";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 // icon
 import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
 
-// geocode style
-import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+/* eslint-disable import/no-webpack-loader-syntax */
+import mapboxgl from "mapbox-gl";
+// @ts-ignore
+mapboxgl.workerClass =
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 // mapbox token
 const MAPBOX_TOKEN =
