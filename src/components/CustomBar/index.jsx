@@ -19,9 +19,9 @@ const CustomBar = () => {
         }}
       >
         <Grid container spacing={5}>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <RoomSlider />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12}>
             <MetaData />

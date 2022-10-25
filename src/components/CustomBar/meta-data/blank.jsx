@@ -8,7 +8,7 @@ const Blank = () => {
     <>
       <CardContent>
         <Typography variant="h2" color="#fff">
-          Search Location for Appartment Price Prediction
+          Search Location get Appartment Price 💲🤑💲
         </Typography>
       </CardContent>
     </>

@@ -72,7 +72,7 @@ const Filled = ({ location, sqft, bath, balcony, rooms, price }) => {
         ) : (
           <Typography gutterBottom variant="h6" color="#fff">
             <Chip color="error" icon={<MonetizationOnIcon />} label="Price" />
-            {"\t"}⮕ ₹{price}
+            {"\t"}⮕ ₹ {price} LAKH💲
           </Typography>
         )}
       </CardContent>

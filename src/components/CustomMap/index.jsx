@@ -82,7 +82,7 @@ const CustomMap = () => {
           latitude={searchLocation.latitude}
           anchor="bottom"
         >
-          <PersonPinCircleIcon fontSize="large" color="primary" />
+          <PersonPinCircleIcon style={{ fontSize: 69 }} color="primary" />
         </Marker>
       )}
     </MapGL>

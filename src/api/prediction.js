@@ -10,7 +10,6 @@ const prediction = async (searchRequest, availableLocation, setHousePrice) => {
   //   process POST request
   const { data } = await axios({
     method: "POST",
-    // headers: { "content-type": "application/x-www-form-urlencoded" },
     url: "https://bapp-api.onrender.com/getpredictedprice",
     data: qs.stringify({
       total_sqft: sqft,
@@ -23,7 +22,6 @@ const prediction = async (searchRequest, availableLocation, setHousePrice) => {
   console.log(data);
 
   setHousePrice(data.estimated_price);
-  // return data.estimated_price;
 };
 
 export default prediction;
