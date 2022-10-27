@@ -29,37 +29,37 @@ const Filled = ({ location, sqft, bath, balcony, rooms, price }) => {
       </CardActionArea>
 
       <CardContent>
-        <Typography gutterBottom variant="h2" color="#fff">
+        <Typography gutterBottom variant="h3" color="#fff">
           Housing Price :
         </Typography>
 
         {/* location */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="info" icon={<RoomIcon />} label="Location " />
+          <Chip color="error" icon={<RoomIcon />} label="Location " />
           {"\t"}⮕ {location}
         </Typography>
 
         {/* area */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="secondary" icon={<RoofingRoundedIcon />} label="Area " />
+          <Chip color="error" icon={<RoofingRoundedIcon />} label="Area " />
           {"\t"}⮕ {sqft} Sqft
         </Typography>
 
         {/* bath */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="primary" icon={<BathtubIcon />} label="Bath " />
+          <Chip color="error" icon={<BathtubIcon />} label="Bath " />
           {"\t"}⮕ {bath}
         </Typography>
 
         {/* balcony */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="warning" icon={<BalconyIcon />} label="Balcony " />
+          <Chip color="error" icon={<BalconyIcon />} label="Balcony " />
           {"\t"}⮕ {balcony}
         </Typography>
 
         {/* rooms */}
         <Typography gutterBottom variant="h6" color="#fff">
-          <Chip color="success" icon={<ChairIcon />} label="Rooms" />
+          <Chip color="error" icon={<ChairIcon />} label="Rooms" />
           {"\t"}⮕ {rooms}BHK
         </Typography>
 
@@ -72,7 +72,7 @@ const Filled = ({ location, sqft, bath, balcony, rooms, price }) => {
         ) : (
           <Typography gutterBottom variant="h6" color="#fff">
             <Chip color="error" icon={<MonetizationOnIcon />} label="Price" />
-            {"\t"}⮕ ₹ {price} LAKH💲
+            {"\t"}⮕ ₹ {price} LAKHS
           </Typography>
         )}
       </CardContent>

@@ -6,11 +6,17 @@ import { ThemeProvider } from "@mui/material/styles";
 import { useGlobalContext } from "../../../contexts";
 
 // import packages
-import { Card, Typography } from "@mui/material";
+import { Card, Grid, Typography } from "@mui/material";
+
+// import react-boostrap
+import { Image } from "react-bootstrap";
 
 // import components
 import Blank from "./blank";
 import Filled from "./filled";
+
+// import logo
+import logo from "../../../assets/img/logoHousez.png";
 
 // theme
 import theme from "./theme";
@@ -25,9 +31,18 @@ const MetaData = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Typography variant="h1" color="error" gutterBottom>
-          💲Housez💲
-        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <Image src={logo} width="69" responsive />
+          </Grid>
+
+          <Grid item xs={10}>
+            <Typography variant="h1" color="error" gutterBottom>
+              Housez
+            </Typography>
+          </Grid>
+        </Grid>
+
         <Card sx={{ backgroundColor: "#131515" }}>
           {location && rooms > 0 && price > 0 ? (
             <Filled
@@ -44,7 +59,7 @@ const MetaData = () => {
               sqft={sqft}
               bath={bath}
               balcony={balcony}
-              price={Math.abs(price)}
+              price="Not Found !"
               rooms={rooms}
             />
           ) : (

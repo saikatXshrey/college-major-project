@@ -7,7 +7,7 @@ const Blank = () => {
   return (
     <>
       <CardContent>
-        <Typography variant="h2" color="#fff">
+        <Typography variant="h3" color="#fff">
           Search Location get Appartment Price 💲🤑💲
         </Typography>
       </CardContent>
