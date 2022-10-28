@@ -18,16 +18,16 @@ https://user-images.githubusercontent.com/76695320/198582878-2c8b817b-3102-4b71-
 
 api → https://bapp-api.onrender.com
 
-#### Get Locations (GET)
+#### Get Locations
 
 ```
-    /api/getlocation
+   GET /api/getlocation
 ```
 
-#### Get Predicted Price (POST)
+#### Get Predicted Price
 
 ```
-    /api/getpredictedprice
+   POST /api/getpredictedprice
 ```
 
 | Parameter    | Type     | Description                       |
