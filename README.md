@@ -25,7 +25,7 @@ api → https://bapp-api.onrender.com
 #### Get Predicted Price
 
 ```http
-  POST /api/getredictedprice
+  POST /api/getpredictedprice
 ```
 
 | Parameter    | Type     | Description                       |
