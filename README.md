@@ -4,6 +4,8 @@ Getting an estimate of house price in certain areas is painful. All you can get 
 
 To solve the problem this project "Housez" is made to bring to you the exact brief price prediction of a place.
 
+## Live Link → https://housez.netlify.app/
+
 ## Demo
 
 Project Demo
