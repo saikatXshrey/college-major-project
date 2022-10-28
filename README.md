@@ -20,13 +20,13 @@ api → https://bapp-api.onrender.com
 
 #### Get Locations (GET)
 
-```http
+```
     /api/getlocation
 ```
 
 #### Get Predicted Price (POST)
 
-```http
+```
     /api/getpredictedprice
 ```
 
