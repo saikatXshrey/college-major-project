@@ -12,10 +12,6 @@ Project Demo
 
 https://user-images.githubusercontent.com/76695320/198582878-2c8b817b-3102-4b71-a34e-f7ad91f5effe.mp4
 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 ## API Reference
 
 api → https://bapp-api.onrender.com
